@@ -63,7 +63,7 @@ tabs.forEach((tab => {
         })
         target.classList.add('qualification__active')
 
-        tab.forEach(tab => {
+        tabs.forEach(tab => {
             tab.classList.remove('qualification__active')
         })
         tab.classList.add('qualification__active')
@@ -214,3 +214,8 @@ cols.forEach((col, index) => {
 
     percentage.style.width = text.textContent.toString()
 })
+
+
+// /*=== STAR RATING ===*/
+// var doc = document.querySelector('link[rel="import"]').import;
+// var clone = document.importNode(text.content, true)
