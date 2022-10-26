@@ -5,7 +5,7 @@ const navMenu = document.getElementById('nav-menu'),
 
 /*=== MENU SHOW ==*/
 /*validate if constant exists*/
-if(navToggle){
+if (navToggle) {
     navToggle.addEventListener('click', () => {
         navMenu.classList.add('show-menu')
     })
@@ -13,7 +13,7 @@ if(navToggle){
 
 /*=== MENU HIDDEN ==*/
 /*validate if constant exists*/
-if(navClose){
+if (navClose) {
     navClose.addEventListener('click', () => {
         navMenu.classList.remove('show-menu')
     })
@@ -22,11 +22,12 @@ if(navClose){
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav__link')
 
-function linkAction(){
+function linkAction() {
     const navMenu = document.getElementById('nav-menu')
     // When we click on each nav__link, we remove the show-menu class
     navMenu.classList.remove('show-menu')
 }
+
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
 
@@ -37,11 +38,11 @@ const skillsContent = document.getElementsByClassName('skills__content'),
 function toggleSkills() {
     let itemClass = this.parentNode.className
 
-    for (let i = 0; i< skillsContent.length; i++){
+    for (let i = 0; i < skillsContent.length; i++) {
         skillsContent[i].className = 'skills__content skills__close'
     }
-    if (itemClass === 'skills__content skills__close'){
-        this.parentNode.className= 'skills__content skills__open'
+    if (itemClass === 'skills__content skills__close') {
+        this.parentNode.className = 'skills__content skills__open'
     }
 }
 
@@ -51,7 +52,7 @@ skillsHeader.forEach((el) => {
 
 /*=== QUALIFICATION TABS ==*/
 const tabs = document.querySelectorAll('[data-target]'),
-    tabContents=document.querySelectorAll('[data-content]')
+    tabContents = document.querySelectorAll('[data-content]')
 
 tabs.forEach((tab => {
     tab.addEventListener('click', () => {
@@ -72,14 +73,14 @@ tabs.forEach((tab => {
 /*=== SERVICES MODAL ==*/
 const modalViews = document.querySelectorAll('.services__modal'),
     modalBtns = document.querySelectorAll('.services__button'),
-    modalCloses= document.querySelectorAll('.services__modal-close')
+    modalCloses = document.querySelectorAll('.services__modal-close')
 
-let modal = function (modalClick){
+let modal = function (modalClick) {
     modalViews[modalClick].classList.add('active-modal')
 }
 
 modalBtns.forEach((modalBtn, i) => {
-    modalBtn.addEventListener('click',() => {
+    modalBtn.addEventListener('click', () => {
         modal(i)
     })
 })
@@ -124,9 +125,9 @@ var swiperTestimonial = new Swiper(".testimonial__container", {
         //dynamicMainBullets: true
     },
 
-    breakpoints:{
-        568:{
-            slidesPerView:2
+    breakpoints: {
+        568: {
+            slidesPerView: 2
         }
     }
 });
@@ -134,39 +135,42 @@ var swiperTestimonial = new Swiper(".testimonial__container", {
 /*=== SCROLL SECTION ACTIVE LINK ==*/
 const sections = document.querySelectorAll('section[id]')
 
-function scrollActive(){
+function scrollActive() {
     const scrollY = window.pageYOffset
 
-    sections.forEach(current =>{
+    sections.forEach(current => {
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 50;
         sectionId = current.getAttribute('id')
 
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-        }else{
+        } else {
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
         }
     })
 }
+
 window.addEventListener('scroll', scrollActive)
 
 /*=== CHANGE BACKGROUND HEADER ==*/
-function scrollHeader(){
+function scrollHeader() {
     const nav = document.getElementById('header')
     // When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
-    if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
+    if (this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
 }
+
 window.addEventListener('scroll', scrollHeader)
 
 /*=== TESTIMONIAL ==*/
 
 /*==================== SHOW SCROLL UP ====================*/
-function scrollUp(){
+function scrollUp() {
     const scrollUp = document.getElementById('scroll-up');
     // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
-    if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+    if (this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
 }
+
 window.addEventListener('scroll', scrollUp)
 
 /*=== DARK LIGHT THEME ==*/
@@ -197,4 +201,16 @@ themeButton.addEventListener('click', () => {
     // We save the theme and the current icon that the user chose
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
+})
+
+/*=== PROGRESS BAR ===*/
+const cols = document.querySelectorAll(".skills__data")
+
+cols.forEach((col, index) => {
+    let text = col.querySelector('p')
+    let percentage = col.querySelector('span')
+    console.log(text.textContent)
+    console.log(percentage)
+
+    percentage.style.width = text.textContent.toString()
 })
