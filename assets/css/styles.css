@@ -52,8 +52,10 @@
     --mb-3: 3rem;
 
     /*=== z index ==*/
+    --z-lines: 1;
     --z-tooltip: 10;
     --z-fixed: 100;
+    --z-menu: 500;
     --z-modal: 1000;
 }
 
@@ -219,6 +221,7 @@ img {
 
 @media only screen and (max-width: 767px) {
     .nav__menu {
+        z-index: var(--z-menu);
         position: fixed;
         bottom: -100%;
         left: 0;
@@ -590,6 +593,7 @@ img {
 }
 
 .qualification__rounder {
+    z-index: var(--z-lines);
     display: inline-block;
     width: 13px;
     height: 13px;
@@ -598,6 +602,7 @@ img {
 }
 
 .qualification__line {
+    z-index: var(--z-lines);
     display: block;
     width: 1px;
     height: 100%;
