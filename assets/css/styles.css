@@ -104,6 +104,12 @@ body.dark-theme {
     color: var(--first-color-alt);
 }
 
+.hidden {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
 /*=== BASE ==*/
 * {
     box-sizing: border-box;
@@ -861,6 +867,13 @@ img {
 .contact__information {
     display: flex;
     margin-bottom: var(--mb-2);
+    padding: .3rem 0 .3rem 1rem;
+    border-radius: 2rem;
+}
+
+
+.contact__information:hover {
+    background: rgb(0,0,0,.03);
 }
 
 .contact__icon {
