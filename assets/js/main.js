@@ -63,7 +63,7 @@ tabs.forEach((tab => {
         })
         target.classList.add('qualification__active')
 
-        tab.forEach(tab => {
+        tabs.forEach(tab => {
             tab.classList.remove('qualification__active')
         })
         tab.classList.add('qualification__active')
@@ -214,3 +214,30 @@ cols.forEach((col, index) => {
 
     percentage.style.width = text.textContent.toString()
 })
+
+
+/*=== COPY TO CLICKBOARD ===*/
+function copyToClipBoard (text) {
+    return navigator.clipboard.writeText(text)
+}
+
+document.addEventListener("click", event => {
+    const type = event.target.dataset.type
+    console.log(event.target)
+    // если клик по контейнеру
+    if (type === "copy") {
+        let content = event.target.querySelector('span');           //в контейнере находим тег с нужной информацией
+        copyToClipBoard(content.textContent.toString())
+    }
+    // если клик по другому ребенку в контейнере
+    if (type === "copy-child") {
+        let elt = event.target.closest(".contact__information");    //находим контейнер
+        let content = elt.querySelector('span');                    //в контейнере находим тег с нужной информацией
+        copyToClipBoard(content.textContent.toString())
+    }
+    // если клик по нужному элементу
+    if (type === "copy-target"){
+        copyToClipBoard(event.target.textContent.toString())
+    }
+})
+
