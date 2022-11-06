@@ -1,6 +1,6 @@
 # PORTFOLIO
 
-Visit [this link](https://marialaricheva.github.io/Portfolio/) to check it out!
+Visit [this link](https://mvlaricheva.netlify.app/) to check it out!
 
 ## The page is:
 - Responsive
