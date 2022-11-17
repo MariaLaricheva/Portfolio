@@ -149,6 +149,15 @@ img {
     height: auto;
 }
 
+textarea {
+    resize: none;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
 /*=== REUSABLE CSS CLASSES ==*/
 .section {
     padding: 2rem 0 4rem;
@@ -440,7 +449,6 @@ img {
     max-width: 480px;
 }
 
-
 .about__info {
     display: flex;
     justify-content: space-evenly;
@@ -463,9 +471,18 @@ img {
     text-align: center;
 }
 
+.about__cv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5rem;
+}
+
 .about__buttons {
     display: flex;
+    align-items: center;
     justify-content: space-around;
+    gap: 1.5rem;
 }
 
 /*=== SKILLS ===*/
@@ -927,6 +944,20 @@ img {
     border: none;
     outline: none;
     padding: .25rem .5rem .5rem 0;
+}
+
+.contact__button{
+    font-family: var(--body-font);
+    font-size: var(--small-font-size);
+}
+
+/* Status color */
+.color-blue {
+    color: hsl(207,56%, 45%);
+}
+
+.color-red {
+    color: hsl(4,71%, 50%);
 }
 
 /*=== FOOTER ==*/

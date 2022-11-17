@@ -214,21 +214,18 @@ const cols = document.querySelectorAll(".skills__data")
 cols.forEach((col, index) => {
     let text = col.querySelector('p')
     let percentage = col.querySelector('span')
-    console.log(text.textContent)
-    console.log(percentage)
 
     percentage.style.width = text.textContent.toString()
 })
 
 
-/*=== COPY TO CLICKBOARD ===*/
+/*=== COPY TO CLIPBOARD ===*/
 function copyToClipBoard (text) {
     return navigator.clipboard.writeText(text)
 }
 
 document.addEventListener("click", event => {
     const type = event.target.dataset.type
-    console.log(event.target)
     // если клик по контейнеру
     if (type === "copy") {
         let content = event.target.querySelector('span');           //в контейнере находим тег с нужной информацией
@@ -246,3 +243,48 @@ document.addEventListener("click", event => {
     }
 })
 
+
+
+/*=============== EMAIL JS ===============*/
+const contactForm = document.getElementById('contact-form');
+const contactName = document.getElementById('contact-name');
+const contactEmail = document.getElementById('contact-email');
+const contactProject = document.getElementById('contact-project');
+const contactMessage = document.getElementById('contact-message');
+const messageStatus = document.getElementById('message-status');
+
+const sendEmail = (e) => {
+    e.preventDefault();
+
+    // Check if the field has a value
+    if(contactName.value === '' || contactEmail.value === '' || contactProject.value === '' || contactMessage === ''){
+        //add and remove color
+        messageStatus.classList.remove('color-blue')
+        messageStatus.classList.add('color-red')
+        //show message
+        messageStatus.textContent = 'Write all the input fields ❗'
+    } else {
+        //service id - template id - #form - public key
+        emailjs.sendForm('process.env.SERVICE', 'process.env.TEMPLATE', '#contact-form','process.env.PUBLICKEY')
+            .then(() => {
+                //show message and color
+                messageStatus.classList.add('color-blue')
+                messageStatus.textContent = 'Message sent successfully ✔'
+                //remove message after 5 seconds
+                setTimeout(() => {
+                    contactMessage.textContent = '';
+                }, 5000)
+            }, (error) => {
+                alert('OOPS... SOMETHING HAS FAILED', error)
+            })
+    }
+
+    //clearing input fields
+    contactName.value = '';
+    contactEmail.value = '';
+    contactProject.value = '';
+    contactMessage.value = '';
+
+}
+
+contactForm.addEventListener('submit', sendEmail)

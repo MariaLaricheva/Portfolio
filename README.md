@@ -9,4 +9,4 @@ Visit [this link](https://mvlaricheva.netlify.app/) to check it out!
 
 > Lang switch coming soon!
 
-#### Please note that `SENDING MESSAGE` via `CONTACT FORM` is not implemented yet
+#### `SENDING MESSAGE` via `CONTACT FORM` is now implemented! try it out!
