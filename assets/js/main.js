@@ -275,7 +275,7 @@ const sendEmail = (e) => {
                     contactMessage.textContent = '';
                 }, 5000)
             }, (error) => {
-                alert('OOPS... SOMETHING HAS FAILED', error)
+                alert('Feature is not implemented yet', error)
             })
     }
 
