@@ -128,7 +128,7 @@ body {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     background-color: var(--body-color);
-    color: var(--text-color)
+    color: var(--text-color);
 }
 
 h1,h2,h3,h4 {
@@ -161,8 +161,8 @@ button {
 /*=== REUSABLE CSS CLASSES ==*/
 .section {
     padding: 2rem 0 4rem;
-    width: 100vw;
     position: static;
+    left: 0;
 }
 
 .section__title {
@@ -1189,6 +1189,7 @@ button {
     .main,
     .footer__container{
         padding: 0 1rem;
+        width: 100%;
     }
 
     .nav{
